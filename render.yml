@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: translateer
+    runtime: docker
+    plan: free
+    env: docker
+    port: 8999
+    envVars:
+      - key: PAGE_COUNT
+        value: "2"
+    resources:
+      memoryMB: 512
