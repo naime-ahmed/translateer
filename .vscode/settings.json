@@ -9,5 +9,8 @@
 	"deno.lint": true,
 	"[typescript][javascript][json][markdown][html]": {
 		"editor.defaultFormatter": "denoland.vscode-deno"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }
