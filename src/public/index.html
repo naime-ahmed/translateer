@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="favIcon.png" />
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
@@ -22,7 +22,7 @@
 			class="mx-auto p-2 prose text-sm md:text-base lg:text-lg xl:text-xl"
 		>
 			<h1 class="flex items-center">
-				<img src="logo.png" class="w-16 h-16" style="margin: 0 1rem 0 0" />
+				<img src="logo.png" class="w-40 h-16" style="margin: 0 1rem 0 0" />
 				Translateer
 			</h1>
 
@@ -105,27 +105,6 @@
 				</li>
 				<li>You can also self-host this service. See the source code below.</li>
 			</ul>
-
-			<h2>Source Code</h2>
-			<p>
-				GitHub:
-				<a href="https://github.com/songkeys/translateer">
-					songkeys/translateer
-				</a>
-			</p>
-
-			<h2>Sponsor</h2>
-			<p>
-				If you find this project useful, please consider sponsoring me. It will
-				be used to maintain the service and improve the quality.
-			</p>
-			<iframe
-				src="https://github.com/sponsors/songkeys/card"
-				title="Sponsor Songkeys"
-				height="200"
-				width="100%"
-				class="not-prose rounded-lg border-0"
-			></iframe>
 		</article>
 
 		<script
@@ -152,7 +131,7 @@
 			const entry = location.origin;
 
 			const usageCode = await codeToHtml(
-				`$ curl '${entry}/api?text=hello&from=en&to=zh-CN'`,
+				`$ curl '${entry}/api?text=hello&from=en&to=bn'`,
 				{
 					lang: "bash",
 					theme: "github-dark",
@@ -175,7 +154,7 @@
 		<footer>
 			<div class="flex justify-center my-10">
 				<p class="text-gray-500 text-sm">
-					Made by <a href="https://song.work">Songkeys</a> @ 2021
+					Made by <a href="https://song.work">Songkeys</a> maintain by Eat Word  @ 2025
 				</p>
 			</div>
 		</footer>
