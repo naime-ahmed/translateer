@@ -1,23 +1,20 @@
-FROM denoland/deno:latest
+FROM denoland/deno:1.43.3 # Pin to Deno 1.x to avoid unstable flag issues
 
-# Install dependencies in single RUN command
+# Install all dependencies in one layer
 RUN apt-get update && \
     apt-get install -y \
         chromium \
-        chromium-sandbox \
+        xvfb \
+        fonts-noto-cjk \ 
     && rm -rf /var/lib/apt/lists/*
 
-# Environment variables (single line each)
+# Environment variables
 ENV CHROME_BIN=/usr/bin/chromium
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
-ENV CHROME_ARGS="--no-sandbox --disable-setuid-sandbox --disable-dev-shm-usage --single-process --no-zygote --disable-gpu"
+ENV DISPLAY=:99 
 
 WORKDIR /app
-
 COPY . .
 
-# Cache dependencies
-RUN deno cache src/app.ts
-
-CMD ["deno", "run", "-A", "--unstable", "src/app.ts"]
+# Start script with Xvfb
+CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768x16 & deno run -A src/app.ts"]

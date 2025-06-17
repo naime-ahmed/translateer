@@ -45,21 +45,19 @@ export default class PagePool {
   }
 
   private async _initBrowser() {
-    const { browser } = await connect({
-      headless: false,
+    // Remove puppeteer-real-browser and use standard puppeteer
+    const browser = await puppeteer.launch({
+      executablePath: Deno.env.get("PUPPETEER_EXECUTABLE_PATH"),
+      headless: true,
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--single-process",
       ],
-      customConfig: {},
-      turnstile: true,
-      connectOption: {},
-      disableXvfb: false,
-      ignoreAllFlags: false,
     });
     this._browser = browser;
-    console.log("browser launched");
   }
 
   private async _initPages() {
