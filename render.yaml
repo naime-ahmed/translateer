@@ -5,6 +5,11 @@ services:
     plan: free
     env: docker
     port: 8999
+    envVars:
+      - key: PAGE_COUNT
+        value: "1"
+      - key: CHROME_ARGS  
+        value: "--no-sandbox --disable-dev-shm-usage --single-process"
     resources:
       memoryMB: 512
     buildCommand: "docker build -t translateer ."
