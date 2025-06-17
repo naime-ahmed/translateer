@@ -1,4 +1,4 @@
-FROM denoland/deno:1.43.3 # Pin to Deno 1.x to avoid unstable flag issues
+FROM denoland/deno:1.43.3
 
 # Install all dependencies in one layer
 RUN apt-get update && \
